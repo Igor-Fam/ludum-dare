@@ -4,6 +4,7 @@ class_name Player
 enum {
 	MOVE,
 	CLIMB,
+	DASH
 }
 
 const SPEED = 100.0
@@ -13,24 +14,37 @@ const MAX_VELOCITY = 900
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity_val = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity
+
 var state = MOVE
+
+var double_jump_available = false
+var dash_available = true
+var dash_timer = 0
+var dash_cooldown = 1.2
 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var ladderCheck = $LadderCheck
+@onready var inventory = $Inventory
+@onready var gun = $Gun
 
 func _physics_process(delta):
 	match state:
 		MOVE: move_state(delta)
 		CLIMB: climb_state(delta)
+		DASH: dash_state(delta)
 
 #States
 func move_state(delta):
 	if is_on_ladder() && Input.is_action_pressed("ui_up"):
 		state = CLIMB
 	
+	inventory.executeModuleBehaviours()
+	
 	move_x(delta)
 	move_y_gravity(delta)
 	move_and_slide()
+	
+	update_dash_cooldown(delta)
 
 func climb_state(delta):
 	if !(is_on_ladder() && Input.is_action_pressed("ui_up")):
@@ -39,6 +53,20 @@ func climb_state(delta):
 	move_x(delta)
 	move_y_climb()
 	move_and_slide()
+
+func dash_state(delta):
+		
+	velocity.x = move_toward(velocity.x, 0, delta * 1000)
+	velocity.y = 0
+	
+	if(dash_timer >= 0.08):
+		dash_timer = 0
+		velocity.x = SPEED * (1 if animatedSprite.flip_h else -1)
+		state = MOVE
+	
+	move_and_slide()	
+	
+	dash_timer += delta
 
 #Movement and collision
 func move_x(delta):
@@ -72,6 +100,7 @@ func move_y_gravity(delta):
 		velocity.y = move_toward(velocity.y, MAX_VELOCITY, gravity)
 	else:
 		gravity = gravity_val * delta
+		double_jump_available = true
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -91,4 +120,6 @@ func is_on_ladder():
 	
 	return true
 
+func update_dash_cooldown(delta):
+	dash_cooldown = move_toward(dash_cooldown, 0, delta)
 

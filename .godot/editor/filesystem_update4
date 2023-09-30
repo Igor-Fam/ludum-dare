@@ -1,12 +1,26 @@
-res://world.tscn
-res://hitbox.gd
-res://hitbox.tscn
-res://spikes.tscn
-res://spikes.gd
-res://walking_enemy.tscn
-res://Area2D.gd
-res://area_2d.tscn
 res://player.tscn
-res://player.gd
 res://ladder.tscn
 res://tile_map.tscn
+res://nodes/world.tscn
+res://nodes/ladder.tscn
+res://nodes/player.tscn
+res://nodes/tile_map.tscn
+res://nodes/block.tscn
+res://nodes/module.tscn
+res://scripts/player.gd
+res://nodes/modules.tscn
+res://scripts/modules.gd
+res://nodes/modulesList.tscn
+res://scripts/module behaviours/double_jump.gd
+res://nodes/inventory.tscn
+res://scripts/module.gd
+res://scripts/inventory.gd
+res://modules/Double Jump.tres
+res://modules/Dash.tres
+res://scripts/module behaviours/dash.gd
+res://scripts/module behaviours/laser.gd
+res://nodes/bullet.tscn
+res://gun.gd
+res://nodes/gun.tscn
+res://scripts/gun.gd
+res://modules/Laser.tres

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Module" load_steps=3 format=3 uid="uid://s8wa077hkwtv"]
+
+[ext_resource type="Script" path="res://scripts/module behaviours/double_jump.gd" id="1_15dvd"]
+[ext_resource type="Script" path="res://scripts/module.gd" id="1_vgqpy"]
+
+[resource]
+script = ExtResource("1_vgqpy")
+name = "Double Jump"
+behaviour = ExtResource("1_15dvd")

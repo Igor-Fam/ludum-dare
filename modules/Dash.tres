@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Module" load_steps=3 format=3 uid="uid://dsrj8uix1kxmh"]
+
+[ext_resource type="Script" path="res://scripts/module.gd" id="1_4yq03"]
+[ext_resource type="Script" path="res://scripts/module behaviours/dash.gd" id="1_7ngr0"]
+
+[resource]
+script = ExtResource("1_4yq03")
+name = "Dash"
+behaviour = ExtResource("1_7ngr0")

@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://bm0dphi0akj77"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_x5d67"]
+[ext_resource type="Texture2D" uid="uid://cy6mv0dr7f8ec" path="res://assets/sprites/characters_packed.png" id="2_dojyx"]
+[ext_resource type="PackedScene" uid="uid://crd6ffpgtru4y" path="res://nodes/inventory.tscn" id="3_1fap1"]
+[ext_resource type="Resource" uid="uid://s8wa077hkwtv" path="res://modules/Double Jump.tres" id="4_nnvuj"]
+[ext_resource type="Resource" uid="uid://dsrj8uix1kxmh" path="res://modules/Dash.tres" id="5_m50v5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osy08"]
+atlas = ExtResource("2_dojyx")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrkqu"]
+atlas = ExtResource("2_dojyx")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ix0"]
+atlas = ExtResource("2_dojyx")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7je2"]
+atlas = ExtResource("2_dojyx")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re3of"]
+atlas = ExtResource("2_dojyx")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jk3jm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osy08")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrkqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3ix0")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7je2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re3of")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8hxm"]
+size = Vector2(12, 17)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_x5d67")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jk3jm")
+animation = &"Run"
+autoplay = "Run"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_r8hxm")
+
+[node name="LadderCheck" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(0, 15)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Inventory" parent="." instance=ExtResource("3_1fap1")]
+modules = Array[Resource("res://scripts/module.gd")]([ExtResource("4_nnvuj"), ExtResource("5_m50v5")])

@@ -1,26 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm0dphi0akj77"]
+[gd_scene load_steps=14 format=3 uid="uid://bm0dphi0akj77"]
 
-[ext_resource type="Texture2D" uid="uid://cy6mv0dr7f8ec" path="res://characters_packed.png" id="1_eoabp"]
-[ext_resource type="Script" path="res://player.gd" id="1_x5d67"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_x5d67"]
+[ext_resource type="PackedScene" uid="uid://cnoh57jy1f0du" path="res://nodes/gun.tscn" id="2_bh2ut"]
+[ext_resource type="Texture2D" uid="uid://cy6mv0dr7f8ec" path="res://assets/sprites/characters_packed.png" id="2_dojyx"]
+[ext_resource type="PackedScene" uid="uid://crd6ffpgtru4y" path="res://nodes/inventory.tscn" id="3_1fap1"]
+[ext_resource type="Resource" uid="uid://s8wa077hkwtv" path="res://modules/Double Jump.tres" id="4_nnvuj"]
+[ext_resource type="Resource" uid="uid://k68bj34bi5ip" path="res://modules/Laser.tres" id="5_pkabl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_osy08"]
-atlas = ExtResource("1_eoabp")
+atlas = ExtResource("2_dojyx")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrkqu"]
-atlas = ExtResource("1_eoabp")
+atlas = ExtResource("2_dojyx")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3ix0"]
-atlas = ExtResource("1_eoabp")
+atlas = ExtResource("2_dojyx")
 region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7je2"]
-atlas = ExtResource("1_eoabp")
+atlas = ExtResource("2_dojyx")
 region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_re3of"]
-atlas = ExtResource("1_eoabp")
+atlas = ExtResource("2_dojyx")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jk3jm"]
@@ -79,3 +83,9 @@ target_position = Vector2(0, 15)
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Inventory" parent="." instance=ExtResource("3_1fap1")]
+modules = Array[Resource("res://scripts/module.gd")]([ExtResource("4_nnvuj"), ExtResource("5_pkabl")])
+
+[node name="Gun" parent="." instance=ExtResource("2_bh2ut")]
+position = Vector2(0, 5)

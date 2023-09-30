@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Module" load_steps=3 format=3 uid="uid://k68bj34bi5ip"]
+
+[ext_resource type="Script" path="res://scripts/module.gd" id="1_fpe08"]
+[ext_resource type="Script" path="res://scripts/module behaviours/laser.gd" id="1_p7i61"]
+
+[resource]
+script = ExtResource("1_fpe08")
+name = ""
+behaviour = ExtResource("1_p7i61")

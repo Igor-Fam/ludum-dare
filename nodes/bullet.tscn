@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://jpt2tim27abm"]
+
+[ext_resource type="Texture2D" uid="uid://cf2lqgyawlewk" path="res://assets/sprites/bullet.png" id="1_bluec"]
+
+[sub_resource type="GDScript" id="GDScript_61yvw"]
+script/source = "extends CharacterBody2D
+
+var speed = 300
+
+func _physics_process(delta):
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dancj"]
+size = Vector2(7, 6)
+
+[node name="Bullet" type="CharacterBody2D"]
+z_index = 10
+collision_layer = 2
+collision_mask = 0
+script = SubResource("GDScript_61yvw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bluec")
+region_rect = Rect2(198, 126, 18, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_dancj")

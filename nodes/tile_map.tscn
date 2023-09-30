@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvm1a0ijqhh3f"]
 
-[ext_resource type="Texture2D" uid="uid://dxbfbwyhq3bgy" path="res://tiles_packed.png" id="1_idlk5"]
+[ext_resource type="Texture2D" uid="uid://dxbfbwyhq3bgy" path="res://assets/sprites/tiles_packed.png" id="1_15qwp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ycc3"]
-texture = ExtResource("1_idlk5")
+texture = ExtResource("1_15qwp")
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
 0:0/0/terrain_set = 0
