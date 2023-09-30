@@ -1,0 +1,12 @@
+res://world.tscn
+res://hitbox.gd
+res://hitbox.tscn
+res://spikes.tscn
+res://spikes.gd
+res://walking_enemy.tscn
+res://Area2D.gd
+res://area_2d.tscn
+res://player.tscn
+res://player.gd
+res://ladder.tscn
+res://tile_map.tscn
