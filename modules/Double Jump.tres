@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Module" load_steps=3 format=3 uid="uid://s8wa077hkwtv"]
+[gd_resource type="Resource" script_class="Module" load_steps=4 format=3 uid="uid://s8wa077hkwtv"]
 
 [ext_resource type="Script" path="res://scripts/module behaviours/double_jump.gd" id="1_15dvd"]
 [ext_resource type="Script" path="res://scripts/module.gd" id="1_vgqpy"]
+[ext_resource type="Texture2D" uid="uid://bpchxg5prwi1c" path="res://assets/sprites/modules/double_jump.png" id="3_2d4ro"]
 
 [resource]
 script = ExtResource("1_vgqpy")
 name = "Double Jump"
+texture = ExtResource("3_2d4ro")
 behaviour = ExtResource("1_15dvd")

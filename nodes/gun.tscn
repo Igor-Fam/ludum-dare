@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnoh57jy1f0du"]
+[gd_scene load_steps=4 format=3 uid="uid://cnoh57jy1f0du"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_8xefy"]
 [ext_resource type="Texture2D" uid="uid://d3b7kmj08sruj" path="res://assets/sprites/gun.png" id="2_3ed0w"]
+[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="2_q5pbn"]
 
 [node name="Gun" type="Marker2D"]
 script = ExtResource("1_8xefy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6, 0)
+texture_filter = 1
+material = ExtResource("2_q5pbn")
+position = Vector2(3, 0)
 texture = ExtResource("2_3ed0w")
 
 [node name="BulletOut" type="Marker2D" parent="."]
-position = Vector2(16, 0)
+position = Vector2(13, 0)

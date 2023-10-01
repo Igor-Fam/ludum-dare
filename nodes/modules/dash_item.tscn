@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://2bs4alv26k0v"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_o4kll"]
+[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="2_qh714"]
+[ext_resource type="Resource" uid="uid://dsrj8uix1kxmh" path="res://modules/Dash.tres" id="2_skp7y"]
+[ext_resource type="Texture2D" uid="uid://bx1c36ywwg02d" path="res://assets/sprites/modules/dash.png" id="4_nfjbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhhag"]
+size = Vector2(4, 4)
+
+[node name="DashItem" type="Node2D"]
+script = ExtResource("1_o4kll")
+size = Vector2(2, 2)
+module = ExtResource("2_skp7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+material = ExtResource("2_qh714")
+position = Vector2(6, 5)
+texture = ExtResource("4_nfjbi")
+
+[node name="ItemArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ItemArea"]
+position = Vector2(0, 5)
+polygon = PackedVector2Array(-5.4839, -11.5024, -5.4839, 11.4786, 17.3645, 11.4786, 17.4087, 0.518419, 5.47626, 0.518419, 5.47626, -11.5466)
+
+[node name="InventoryArea" type="Area2D" parent="."]
+z_index = 20
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+shape = SubResource("RectangleShape2D_xhhag")
+
+[connection signal="input_event" from="ItemArea" to="." method="_on_area_2d_input_event"]

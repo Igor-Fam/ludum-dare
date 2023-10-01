@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b08d5v1g0ywdb"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_r0j1y"]
+[ext_resource type="Resource" uid="uid://k68bj34bi5ip" path="res://modules/Laser.tres" id="2_yxvwq"]
+[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="3_7ls4a"]
+[ext_resource type="Texture2D" uid="uid://dx0ynyv780qje" path="res://assets/sprites/modules/laser.png" id="4_kgqsv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhhag"]
+size = Vector2(4, 4)
+
+[node name="DashItem" type="Node2D"]
+script = ExtResource("1_r0j1y")
+size = Vector2(3, 2)
+module = ExtResource("2_yxvwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+material = ExtResource("3_7ls4a")
+position = Vector2(12, 6)
+texture = ExtResource("4_kgqsv")
+
+[node name="ItemArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ItemArea"]
+position = Vector2(6, 6)
+polygon = PackedVector2Array(-11.625, -11.375, 23.5, -11.4375, 23.4375, 11.375, 0.5, 11.5, 0.5625, -0.5, -11.5625, -0.5625)
+
+[node name="InventoryArea" type="Area2D" parent="."]
+z_index = 20
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+shape = SubResource("RectangleShape2D_xhhag")
+
+[connection signal="input_event" from="ItemArea" to="." method="_on_area_2d_input_event"]

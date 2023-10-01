@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bx5ac1uo80vwh"]
 
-[ext_resource type="Script" path="res://scripts/WalkingEnemy.gd" id="1_p2gog"]
+[ext_resource type="Script" path="res://scripts/walking_enemy.gd" id="1_p2gog"]
 [ext_resource type="Texture2D" uid="uid://cy6mv0dr7f8ec" path="res://assets/sprites/characters_packed.png" id="1_yqmjs"]
 [ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://nodes/hitbox.tscn" id="3_hfje8"]
 

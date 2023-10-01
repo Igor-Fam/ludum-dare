@@ -13,6 +13,5 @@ func executeBehaviour(player):
 		bullet.rotation = player.gun.rotation
 		bullet.velocity = bullet.speed * bullet.position.direction_to(player.gun.get_global_mouse_position())
 		player.get_parent().add_child(bullet)
-		print (bullet.position)
 		
 

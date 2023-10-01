@@ -1,38 +1,60 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1696052210
-::res://assets/::1696035371
+::res://::1696130140
+::res://assets/::1696118431
 icon.svg::CompressedTexture2D::1127934701750777250::1695672938::1696035371::1::::<><>::
-::res://assets/sprites/::1696053383
+::res://assets/shaders/::1696135714
+JitterFreePixelArt.gdshader::Shader::-1::1696135714::0::1::::<><>::
+JitterFreePixelArt.tres::ShaderMaterial::7440132419368429128::1696130501::0::1::::<><>::res://assets/shaders/JitterFreePixelArt.gdshader
+::res://assets/sprites/::1696135376
 bullet.png::CompressedTexture2D::5180220596804131390::1696053383::1696053385::1::::<><>::
 characters_packed.png::CompressedTexture2D::6522136749193599382::1695673266::1696035272::1::::<><>::
 gun.png::CompressedTexture2D::9128575497769999477::1696052100::1696052110::1::::<><>::
+inventory_grid.png::CompressedTexture2D::8838467003800442130::1696089621::1696118771::1::::<><>::
+player_idle.png::CompressedTexture2D::2031130754172976134::1696135233::1696135235::1::::<><>::
+player_jumping.png::CompressedTexture2D::3199181053416198027::1696135374::1696135376::1::::<><>::
+player_walking.png::CompressedTexture2D::4976339711393718232::1696135154::1696135235::1::::<><>::
 tiles_packed.png::CompressedTexture2D::8775976396195385384::1695673266::1696035275::1::::<><>::
-::res://modules/::1696052850
-Dash.tres::Resource/Module::8458362106422279755::1696047498::0::1::::<><>::res://scripts/module.gd<>res://scripts/module behaviours/dash.gd
-Double Jump.tres::Resource/Module::1332860789190619699::1696047244::0::1::::<><>::res://scripts/module behaviours/double_jump.gd<>res://scripts/module.gd
-Laser.tres::Resource/Module::767890110595363079::1696052850::0::1::::<><>::res://scripts/module.gd<>res://scripts/module behaviours/laser.gd
-::res://nodes/::1696053183
-block.tscn::PackedScene::4140301165090733591::1696035331::0::1::::<><>::uid://dxbfbwyhq3bgy::::res://assets/sprites/tiles_packed.png
-bullet.tscn::PackedScene::663868109235835102::1696053183::0::1::::<><>::uid://dxbfbwyhq3bgy::::res://assets/sprites/tiles_packed.png
-gun.tscn::PackedScene::5714677911779836902::1696053183::0::1::::<><>::res://scripts/gun.gd<>uid://d3b7kmj08sruj::::res://assets/sprites/gun.png
+::res://assets/sprites/modules/::1696088597
+dash.png::CompressedTexture2D::4054611011516674893::1696088431::1696088597::1::::<><>::
+double_jump.png::CompressedTexture2D::3443848548170241462::1696088559::1696088597::1::::<><>::
+jet.png::CompressedTexture2D::7166768810358299686::1696088162::1696088597::1::::<><>::
+laser.png::CompressedTexture2D::8826696616253031438::1696088073::1696088597::1::::<><>::
+sword.png::CompressedTexture2D::2422934202982905584::1696088060::1696088597::1::::<><>::
+::res://modules/::1696132136
+Dash.tres::Resource/Module::8458362106422279755::1696132136::0::1::::<><>::res://scripts/module.gd<>res://scripts/module behaviours/dash.gd<>uid://bx1c36ywwg02d::::res://assets/sprites/modules/dash.png
+Double Jump.tres::Resource/Resource::1332860789190619699::1696089246::0::1::::<><>::res://scripts/module behaviours/double_jump.gd<>res://scripts/module.gd<>uid://bpchxg5prwi1c
+Laser.tres::Resource/Resource::767890110595363079::1696089246::0::1::::<><>::res://scripts/module.gd<>res://scripts/module behaviours/laser.gd<>uid://dx0ynyv780qje
+::res://nodes/::1696135713
+block.tscn::PackedScene::4140301165090733591::1696035331::0::1::::<><>::uid://dxbfbwyhq3bgy
+bullet.tscn::PackedScene::663868109235835102::1696090031::0::1::::<><>::uid://cf2lqgyawlewk
+gun.tscn::PackedScene::5714677911779836902::1696132528::0::1::::<><>::res://scripts/gun.gd<>uid://d3b7kmj08sruj::::res://assets/sprites/gun.png<>uid://deab5nna50a77::::res://assets/shaders/JitterFreePixelArt.tres
 hitbox.tscn::PackedScene::1454658327762940614::1696035360::0::1::::<><>::res://scripts/hitbox.gd
-inventory.tscn::PackedScene::5974136284327729018::1696042642::0::1::::<><>::res://scripts/inventory.gd
-ladder.tscn::PackedScene::2088137648124866574::1696035360::0::1::::<><>::res://scripts/ladder.gd<>uid://dxbfbwyhq3bgy::::res://assets/sprites/tiles_packed.png
-player.tscn::PackedScene::3280505570246033396::1696053183::0::1::::<><>::res://scripts/player.gd<>uid://cnoh57jy1f0du::::res://nodes/gun.tscn<>uid://cy6mv0dr7f8ec::::res://assets/sprites/characters_packed.png<>uid://crd6ffpgtru4y::::res://nodes/inventory.tscn<>uid://s8wa077hkwtv::::res://modules/Double Jump.tres<>uid://k68bj34bi5ip::::res://modules/Laser.tres
+inventory.tscn::PackedScene::5974136284327729018::1696135713::0::1::::<><>::res://scripts/inventory.gd<>uid://go6jux2pscpu::::res://nodes/inventory_display.tscn
+inventory_display.tscn::PackedScene::451933736550951866::1696122614::0::1::::<><>::uid://deab5nna50a77
+inventory_slot.tscn::PackedScene::4844263573894563838::1696122614::0::1::::<><>::res://scripts/inventory_slot.gd
+ladder.tscn::PackedScene::2088137648124866574::1696035360::0::1::::<><>::res://scripts/ladder.gd<>uid://dxbfbwyhq3bgy
+player.tscn::PackedScene::3280505570246033396::1696135713::0::1::::<><>::uid://deab5nna50a77::::res://assets/shaders/JitterFreePixelArt.tres<>res://scripts/player.gd<>uid://cnoh57jy1f0du::::res://nodes/gun.tscn<>uid://crd6ffpgtru4y::::res://nodes/inventory.tscn<>uid://365orl0gvuve::::res://assets/sprites/player_idle.png<>uid://bltybrq0fxjfv::::res://assets/sprites/player_jumping.png<>uid://cc5tt8yr8n0ki::::res://assets/sprites/player_walking.png
 spikes.tscn::PackedScene::2580818295139084665::1696035275::0::1::::<><>::uid://dxbfbwyhq3bgy
-tile_map.tscn::PackedScene::3886738900825199793::1696035331::0::1::::<><>::uid://dxbfbwyhq3bgy::::res://assets/sprites/tiles_packed.png
-walking_enemy.tscn::PackedScene::4062700388761843679::1696035360::0::1::::<><>::res://scripts/WalkingEnemy.gd<>uid://cy6mv0dr7f8ec
-world.tscn::PackedScene::2339028903973840130::1696035360::0::1::::<><>::res://scripts/world.gd<>uid://bm0dphi0akj77::::res://nodes/player.tscn<>uid://bvm1a0ijqhh3f::::res://nodes/tile_map.tscn<>uid://bc1fx2q74samb::::res://nodes/spikes.tscn<>uid://bx5ac1uo80vwh::::res://nodes/walking_enemy.tscn<>uid://40rk7hiwqgcs::::res://nodes/ladder.tscn
-::res://scripts/::1696053157
-gun.gd::GDScript::-1::1696052656::0::1::::<>Marker2D<>::
+tile_map.tscn::PackedScene::3886738900825199793::1696035331::0::1::::<><>::uid://dxbfbwyhq3bgy
+walking_enemy.tscn::PackedScene::4062700388761843679::1696088732::0::1::::<><>::res://scripts/walking_enemy.gd<>uid://cy6mv0dr7f8ec
+world.tscn::PackedScene::2339028903973840130::1696135713::0::1::::<><>::res://scripts/world.gd<>uid://bm0dphi0akj77::::res://nodes/player.tscn<>uid://bvm1a0ijqhh3f::::res://nodes/tile_map.tscn<>uid://bc1fx2q74samb::::res://nodes/spikes.tscn<>uid://bx5ac1uo80vwh::::res://nodes/walking_enemy.tscn<>uid://40rk7hiwqgcs::::res://nodes/ladder.tscn<>uid://dvhtb4we5embh::::res://nodes/modules/double_jump_item.tscn<>uid://2bs4alv26k0v::::res://nodes/modules/dash_item.tscn
+::res://nodes/modules/::1696135714
+dash_item.tscn::PackedScene::1898307867858276887::1696135714::0::1::::<><>::res://scripts/item.gd<>uid://deab5nna50a77::::res://assets/shaders/JitterFreePixelArt.tres<>uid://dsrj8uix1kxmh::::res://modules/Dash.tres<>uid://bx1c36ywwg02d::::res://assets/sprites/modules/dash.png
+double_jump_item.tscn::PackedScene::8648835377797723609::1696135713::0::1::::<><>::res://scripts/item.gd<>uid://bpchxg5prwi1c::::res://assets/sprites/modules/double_jump.png<>uid://s8wa077hkwtv::::res://modules/Double Jump.tres<>uid://deab5nna50a77::::res://assets/shaders/JitterFreePixelArt.tres
+laser_item.tscn::PackedScene::4209503108785587151::1696135743::0::1::::<><>::res://scripts/item.gd<>uid://dsrj8uix1kxmh::::res://modules/Dash.tres<>uid://deab5nna50a77::::res://assets/shaders/JitterFreePixelArt.tres<>uid://bx1c36ywwg02d::::res://assets/sprites/modules/dash.png
+::res://scripts/::1696135616
+gun.gd::GDScript::-1::1696054062::0::1::::<>Marker2D<>::
 hitbox.gd::GDScript::-1::1695837987::0::1::::<>Area2D<>::
-inventory.gd::GDScript::-1::1696047278::0::1::::Inventory<>Node2D<>::
+inventory.gd::GDScript::-1::1696130804::0::1::::Inventory<>Node2D<>::
+inventory_display.gd::GDScript::-1::1696108278::0::1::::<>Sprite2D<>::
+inventory_slot.gd::GDScript::-1::1696117871::0::1::::InventorySlot<>Control<>::
+item.gd::GDScript::-1::1696132967::0::1::::<>Node2D<>::
 ladder.gd::GDScript::-1::1695845661::0::1::::Ladder<>Area2D<>::
 module.gd::GDScript::-1::1696047227::0::1::::Module<>Resource<>::
-player.gd::GDScript::-1::1696053157::0::1::::Player<>CharacterBody2D<>::
-WalkingEnemy.gd::GDScript::-1::1695777400::0::1::::<>CharacterBody2D<>::
-world.gd::GDScript::-1::1695774872::0::1::::<>Node2D<>::
-::res://scripts/module behaviours/::1696053182
-dash.gd::GDScript::-1::1696050259::0::1::::<>Resource<>::
+player.gd::GDScript::-1::1696135616::0::1::::Player<>CharacterBody2D<>::
+walking_enemy.gd::GDScript::-1::1695777400::0::1::::<>CharacterBody2D<>::
+world.gd::GDScript::-1::1696094888::0::1::::<>Node2D<>::
+::res://scripts/module behaviours/::1696135712
+dash.gd::GDScript::-1::1696135632::0::1::::<>Resource<>::
 double_jump.gd::GDScript::-1::1696043241::0::1::::<>Resource<>::
-laser.gd::GDScript::-1::1696053182::0::1::::<>Resource<>::
+laser.gd::GDScript::-1::1696135712::0::1::::<>Resource<>::

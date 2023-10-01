@@ -61,7 +61,7 @@ func dash_state(delta):
 	
 	if(dash_timer >= 0.08):
 		dash_timer = 0
-		velocity.x = SPEED * (1 if animatedSprite.flip_h else -1)
+		velocity.x = SPEED * (-1 if animatedSprite.flip_h else 1)
 		state = MOVE
 	
 	move_and_slide()	
@@ -79,7 +79,7 @@ func move_x(delta):
 	
 	if direction:
 		animatedSprite.animation = "Run"
-		animatedSprite.flip_h = direction > 0
+		animatedSprite.flip_h = direction < 0
 		velocity.x = move_toward(velocity.x, direction * SPEED, acceleration)
 	else:
 		animatedSprite.animation = "Idle"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbaukwggpto1k"]
+
+[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="1_vgoxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xdwc"]
+size = Vector2(11, 11)
+
+[node name="InventorySlot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vgoxy")
+
+[node name="SlotArea" type="Area2D" parent="."]
+position = Vector2(0.49865, 0.505606)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotArea"]
+position = Vector2(5.5, 5.5)
+shape = SubResource("RectangleShape2D_7xdwc")

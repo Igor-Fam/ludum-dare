@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8lbp10k53nao"]
+[gd_scene load_steps=10 format=3 uid="uid://8lbp10k53nao"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ckhb2"]
 [ext_resource type="PackedScene" uid="uid://bm0dphi0akj77" path="res://nodes/player.tscn" id="2_sv81p"]
@@ -6,12 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bc1fx2q74samb" path="res://nodes/spikes.tscn" id="4_cj77u"]
 [ext_resource type="PackedScene" uid="uid://bx5ac1uo80vwh" path="res://nodes/walking_enemy.tscn" id="5_yunxl"]
 [ext_resource type="PackedScene" uid="uid://40rk7hiwqgcs" path="res://nodes/ladder.tscn" id="6_tuxlh"]
+[ext_resource type="PackedScene" uid="uid://dvhtb4we5embh" path="res://nodes/modules/double_jump_item.tscn" id="7_5nox6"]
+[ext_resource type="PackedScene" uid="uid://2bs4alv26k0v" path="res://nodes/modules/dash_item.tscn" id="8_shrhw"]
+[ext_resource type="PackedScene" uid="uid://b08d5v1g0ywdb" path="res://nodes/modules/laser_item.tscn" id="9_xpmg3"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ckhb2")
 
 [node name="Player" parent="." instance=ExtResource("2_sv81p")]
-z_index = 10
+z_index = 5
 position = Vector2(98, 123)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -39,3 +42,12 @@ position = Vector2(315, 99)
 
 [node name="Ladder4" parent="." instance=ExtResource("6_tuxlh")]
 position = Vector2(315, 81)
+
+[node name="DoubleJumpItem" parent="." instance=ExtResource("7_5nox6")]
+position = Vector2(72, 72)
+
+[node name="DashItem" parent="." instance=ExtResource("8_shrhw")]
+position = Vector2(36, 54)
+
+[node name="DashItem2" parent="." instance=ExtResource("9_xpmg3")]
+position = Vector2(54, 99)

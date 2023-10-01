@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://go6jux2pscpu"]
+
+[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="1_ijwgg"]
+[ext_resource type="Texture2D" uid="uid://dx6oi33ljk4oc" path="res://assets/sprites/inventory_grid.png" id="1_t5sul"]
+[ext_resource type="PackedScene" uid="uid://cbaukwggpto1k" path="res://nodes/inventory_slot.tscn" id="2_7hyy7"]
+[ext_resource type="Script" path="res://scripts/inventory_display.gd" id="2_ct457"]
+
+[node name="InventoryDisplay" type="Sprite2D"]
+z_as_relative = false
+texture_filter = 1
+material = ExtResource("1_ijwgg")
+texture = ExtResource("1_t5sul")
+script = ExtResource("2_ct457")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(11, 11)
+layout_direction = 2
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="InventorySlot" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(1, 0)
+
+[node name="InventorySlot3" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(2, 0)
+
+[node name="InventorySlot4" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(0, 1)
+
+[node name="InventorySlot5" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(1, 1)
+
+[node name="InventorySlot6" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(2, 1)
+
+[node name="InventorySlot7" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(0, 2)
+
+[node name="InventorySlot8" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(1, 2)
+
+[node name="InventorySlot9" parent="GridContainer" instance=ExtResource("2_7hyy7")]
+layout_mode = 2
+pos_in_grid = Vector2(2, 2)

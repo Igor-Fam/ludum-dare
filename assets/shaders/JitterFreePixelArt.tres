@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://deab5nna50a77"]
+
+[ext_resource type="Shader" path="res://assets/shaders/JitterFreePixelArt.gdshader" id="1_dy8fh"]
+
+[resource]
+shader = ExtResource("1_dy8fh")
+shader_parameter/smoothing_factor = 1.0

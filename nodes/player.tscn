@@ -1,37 +1,46 @@
-[gd_scene load_steps=14 format=3 uid="uid://bm0dphi0akj77"]
+[gd_scene load_steps=17 format=3 uid="uid://bm0dphi0akj77"]
 
+[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="1_t8wg6"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_x5d67"]
 [ext_resource type="PackedScene" uid="uid://cnoh57jy1f0du" path="res://nodes/gun.tscn" id="2_bh2ut"]
-[ext_resource type="Texture2D" uid="uid://cy6mv0dr7f8ec" path="res://assets/sprites/characters_packed.png" id="2_dojyx"]
 [ext_resource type="PackedScene" uid="uid://crd6ffpgtru4y" path="res://nodes/inventory.tscn" id="3_1fap1"]
-[ext_resource type="Resource" uid="uid://s8wa077hkwtv" path="res://modules/Double Jump.tres" id="4_nnvuj"]
-[ext_resource type="Resource" uid="uid://k68bj34bi5ip" path="res://modules/Laser.tres" id="5_pkabl"]
+[ext_resource type="Texture2D" uid="uid://365orl0gvuve" path="res://assets/sprites/player_idle.png" id="3_ojeo6"]
+[ext_resource type="Texture2D" uid="uid://bltybrq0fxjfv" path="res://assets/sprites/player_jumping.png" id="4_hx4es"]
+[ext_resource type="Texture2D" uid="uid://cc5tt8yr8n0ki" path="res://assets/sprites/player_walking.png" id="4_k5jg2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_osy08"]
-atlas = ExtResource("2_dojyx")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_36wdp"]
+atlas = ExtResource("3_ojeo6")
+region = Rect2(0, 0, 26, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrkqu"]
-atlas = ExtResource("2_dojyx")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0q8f"]
+atlas = ExtResource("4_hx4es")
+region = Rect2(0, 0, 26, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3ix0"]
-atlas = ExtResource("2_dojyx")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe3v3"]
+atlas = ExtResource("4_hx4es")
+region = Rect2(26, 0, 26, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7je2"]
-atlas = ExtResource("2_dojyx")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu44t"]
+atlas = ExtResource("4_k5jg2")
+region = Rect2(0, 0, 26, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_re3of"]
-atlas = ExtResource("2_dojyx")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_imdev"]
+atlas = ExtResource("4_k5jg2")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17q4t"]
+atlas = ExtResource("4_k5jg2")
+region = Rect2(52, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxyke"]
+atlas = ExtResource("4_k5jg2")
+region = Rect2(78, 0, 26, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jk3jm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_osy08")
+"texture": SubResource("AtlasTexture_36wdp")
 }],
 "loop": true,
 "name": &"Idle",
@@ -39,10 +48,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jrkqu")
+"texture": SubResource("AtlasTexture_h0q8f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k3ix0")
+"texture": SubResource("AtlasTexture_fe3v3")
 }],
 "loop": true,
 "name": &"Jump",
@@ -50,31 +59,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j7je2")
+"texture": SubResource("AtlasTexture_gu44t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_re3of")
+"texture": SubResource("AtlasTexture_imdev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17q4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxyke")
 }],
 "loop": true,
 "name": &"Run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8hxm"]
-size = Vector2(12, 17)
+size = Vector2(12, 23)
 
 [node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+material = ExtResource("1_t8wg6")
 collision_layer = 2
 script = ExtResource("1_x5d67")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jk3jm")
-animation = &"Run"
+animation = &"Idle"
 autoplay = "Run"
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_r8hxm")
 
 [node name="LadderCheck" type="RayCast2D" parent="."]
@@ -85,7 +101,8 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Inventory" parent="." instance=ExtResource("3_1fap1")]
-modules = Array[Resource("res://scripts/module.gd")]([ExtResource("4_nnvuj"), ExtResource("5_pkabl")])
+position = Vector2(32, -36)
 
 [node name="Gun" parent="." instance=ExtResource("2_bh2ut")]
-position = Vector2(0, 5)
+z_index = 1
+position = Vector2(0, 1)
