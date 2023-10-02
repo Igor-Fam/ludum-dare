@@ -50,15 +50,16 @@ func change_inventory():
 		remove_item_from_slot()
 
 func add_item_to_slot(slot):
+	var inventory = slot.get_parent().get_parent().get_parent()
+	if inventory.modules.any(check_same_module):
+		return
+		
 	get_parent().remove_child(self)
 	slot.add_child(self)
 	position = slot.get_child(0).get_child(0).transform.get_origin()
 	position.y += 1
 	
-	var inventory = slot.get_parent().get_parent().get_parent()
-	
-	if not inventory.modules.any(check_same_module):
-		inventory.modules.push_back(module)
+	inventory.modules.push_back(module)
 	
 	in_inventory = true
 

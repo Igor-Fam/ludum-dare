@@ -1,13 +1,13 @@
+CollisionShape2D
+Area2D
+Node2D
+RayCast2D
 CharacterBody2D
 StaticBody2D
-Area2D
-CollisionShape2D
 Marker2D
 AnimatedSprite2D
 Sprite2D
-Node2D
 Line2D
-RayCast2D
 Camera2D
 VisibleOnScreenNotifier2D
 CollisionPolygon2D

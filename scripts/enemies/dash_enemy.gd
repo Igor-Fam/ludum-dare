@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+const DROP = preload("res://nodes/modules/dash_item.tscn")
 const SPEED = 35.0
 const DASH_SPEED = 500
 
@@ -43,7 +43,7 @@ func _physics_process(delta):
 	
 	velocity.x = direction * SPEED
 	
-	animatedSprite.flip_h = direction > 0
+	animatedSprite.flip_h = direction < 0
 	
 	move_and_slide()
 
@@ -59,3 +59,11 @@ func dash(delta):
 	move_and_slide()	
 	
 	dash_timer += delta
+
+func die():
+	var drop = DROP.instantiate()
+	get_tree().get_nodes_in_group("World")[0].add_child(drop)
+	drop.position = position
+	queue_free()
+	DROP.instantiate()
+	queue_free()

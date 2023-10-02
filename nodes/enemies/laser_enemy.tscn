@@ -1,26 +1,60 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj7tsxvmgltg7"]
+[gd_scene load_steps=13 format=3 uid="uid://bj7tsxvmgltg7"]
 
 [ext_resource type="Script" path="res://scripts/enemies/laser_enemy.gd" id="1_14dck"]
-[ext_resource type="Texture2D" uid="uid://1fqhr2ci5fcp" path="res://assets/sprites/enemy_placeholder.png" id="2_6y5nr"]
+[ext_resource type="Texture2D" uid="uid://c8a7lgfrjdd4c" path="res://assets/sprites/enemies/laser_enemy_idle.png" id="2_wywkp"]
 [ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://nodes/hitbox.tscn" id="3_3lrkx"]
+[ext_resource type="Texture2D" uid="uid://eyy72k87gs5s" path="res://assets/sprites/enemies/laser_enemy_walking.png" id="3_mk3ut"]
 [ext_resource type="PackedScene" uid="uid://cnoh57jy1f0du" path="res://nodes/gun.tscn" id="4_k27sx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tk2c"]
+atlas = ExtResource("3_mk3ut")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp4b6"]
+atlas = ExtResource("3_mk3ut")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq1u2"]
+atlas = ExtResource("3_mk3ut")
+region = Rect2(52, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntqed"]
+atlas = ExtResource("3_mk3ut")
+region = Rect2(78, 0, 26, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_58bnl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6y5nr")
+"texture": ExtResource("2_wywkp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tk2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp4b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq1u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntqed")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60d1l"]
-size = Vector2(11.9546, 10.1471)
+size = Vector2(14, 22.1471)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lk18"]
-size = Vector2(14, 21.6471)
+size = Vector2(14, 22.147)
 
 [node name="LaserEnemy" type="CharacterBody2D"]
 z_index = 8
@@ -44,10 +78,11 @@ target_position = Vector2(0, 2)
 position = Vector2(-1, -11)
 scale = Vector2(1, 1.01382)
 sprite_frames = SubResource("SpriteFrames_58bnl")
-flip_h = true
+animation = &"idle"
+autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.977283, -4.92647)
+position = Vector2(-1, -10.9265)
 shape = SubResource("RectangleShape2D_60d1l")
 
 [node name="Hitbox" parent="." instance=ExtResource("3_3lrkx")]
@@ -57,7 +92,7 @@ collision_layer = 32
 collision_mask = 18
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -10.6765)
+position = Vector2(-1, -10.9265)
 shape = SubResource("RectangleShape2D_5lk18")
 
 [node name="Gun" parent="." instance=ExtResource("4_k27sx")]

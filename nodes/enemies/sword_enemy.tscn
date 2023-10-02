@@ -1,26 +1,60 @@
-[gd_scene load_steps=8 format=3 uid="uid://fw3en38cmymu"]
+[gd_scene load_steps=13 format=3 uid="uid://fw3en38cmymu"]
 
 [ext_resource type="Script" path="res://scripts/enemies/sword_enemy.gd" id="1_c8r6s"]
-[ext_resource type="Texture2D" uid="uid://1fqhr2ci5fcp" path="res://assets/sprites/enemy_placeholder.png" id="2_r0b6c"]
+[ext_resource type="Texture2D" uid="uid://ct6hrolhs402i" path="res://assets/sprites/enemies/sword_enemy_idle.png" id="2_4ir0s"]
+[ext_resource type="Texture2D" uid="uid://dyx43u42c7kgo" path="res://assets/sprites/enemies/sword_enemy_walking.png" id="3_jn23o"]
 [ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://nodes/hitbox.tscn" id="3_ubjvi"]
-[ext_resource type="PackedScene" uid="uid://5b414ok51iqt" path="res://nodes/sword.tscn" id="4_0wquh"]
+[ext_resource type="PackedScene" uid="uid://bmmvbmauk0e6f" path="res://nodes/enemy_sword.tscn" id="4_aeqf3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlfjq"]
+atlas = ExtResource("3_jn23o")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2glpd"]
+atlas = ExtResource("3_jn23o")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktyr7"]
+atlas = ExtResource("3_jn23o")
+region = Rect2(52, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mde38"]
+atlas = ExtResource("3_jn23o")
+region = Rect2(78, 0, 26, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_58bnl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_r0b6c")
+"texture": ExtResource("2_4ir0s")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlfjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2glpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktyr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mde38")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60d1l"]
-size = Vector2(11.9546, 10.1471)
+size = Vector2(14, 22.1471)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lk18"]
-size = Vector2(14, 21.6471)
+size = Vector2(14, 22.147)
 
 [node name="SwordEnemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -34,10 +68,11 @@ scale = Vector2(0.75, 0.5)
 position = Vector2(-1, -11)
 scale = Vector2(1, 1.01382)
 sprite_frames = SubResource("SpriteFrames_58bnl")
-flip_h = true
+animation = &"idle"
+autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.977283, -4.92647)
+position = Vector2(-1, -10.9265)
 shape = SubResource("RectangleShape2D_60d1l")
 
 [node name="Hitbox" parent="." instance=ExtResource("3_ubjvi")]
@@ -45,8 +80,14 @@ collision_layer = 32
 collision_mask = 18
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -10.6765)
+position = Vector2(-1, -10.9265)
 shape = SubResource("RectangleShape2D_5lk18")
 
-[node name="Sword" parent="." instance=ExtResource("4_0wquh")]
-position = Vector2(-1, -11)
+[node name="Sight" type="RayCast2D" parent="."]
+position = Vector2(5, -10)
+target_position = Vector2(69, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="Sword" parent="." instance=ExtResource("4_aeqf3")]
+position = Vector2(0, -11)

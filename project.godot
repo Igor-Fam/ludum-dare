@@ -11,16 +11,16 @@ config_version=5
 [application]
 
 config/name="Novo Projeto De Jogo"
-run/main_scene="res://nodes/world.tscn"
+run/main_scene="res://nodes/levels/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/stretch/scale=4.01
+window/stretch/scale=2.0
 
 [importer_defaults]
 

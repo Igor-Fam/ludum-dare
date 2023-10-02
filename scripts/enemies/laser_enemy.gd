@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+const DROP = preload("res://nodes/modules/laser_item.tscn")
 const SPEED = 35.0
 const bulletPath = preload("res://nodes/laser.tscn")
 
@@ -37,6 +37,7 @@ func _physics_process(delta):
 	else:
 		
 		if(aim_timer > 0):
+			animatedSprite.animation = "idle"
 			aim_timer -= delta
 			
 			if(shoot_timer > 0):
@@ -56,7 +57,8 @@ func walk():
 	
 	velocity.x = direction * SPEED
 	
-	animatedSprite.flip_h = direction > 0
+	animatedSprite.flip_h = direction < 0
+	animatedSprite.animation = "walk"
 	
 	move_and_slide()
 
@@ -68,3 +70,9 @@ func shoot():
 	bullet.target = player.position
 	bullet.get_node("Hitbox").projectile = true
 	get_parent().add_child(bullet)
+
+func die():
+	var drop = DROP.instantiate()
+	get_tree().get_nodes_in_group("World")[0].add_child(drop)
+	drop.position = position
+	queue_free()

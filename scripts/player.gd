@@ -136,7 +136,7 @@ func cast_laser():
 	var items = get_tree().get_nodes_in_group("Items")
 	
 	if(Input.is_action_pressed("ui_left_click") && items.any(is_selected)):
-		laser.add_point(position)
+		laser.add_point(get_global_transform().origin)
 		laser.add_point(get_global_mouse_position())
 
 func set_weapon_visibility():

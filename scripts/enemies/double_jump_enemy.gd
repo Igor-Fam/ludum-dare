@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+const DROP = preload("res://nodes/modules/double_jump_item.tscn")
 const SPEED = 35.0
 const JUMP_VELOCITY = -300.0
 
@@ -44,9 +44,15 @@ func _physics_process(delta):
 	
 	velocity.x = direction * SPEED
 	
-	animatedSprite.flip_h = direction > 0
+	animatedSprite.flip_h = direction < 0
 	
 	move_and_slide()
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+
+func die():
+	var drop = DROP.instantiate()
+	get_tree().get_nodes_in_group("World")[0].add_child(drop)
+	drop.position = position
+	queue_free()

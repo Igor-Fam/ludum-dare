@@ -1,4 +1,6 @@
 res://assets/sprites
+res://assets/sprites/enemies
+res://nodes/levels
 res://nodes
 res://scripts
 res://scripts/enemies
