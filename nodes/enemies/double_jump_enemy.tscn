@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx5ac1uo80vwh"]
+
+[ext_resource type="Script" path="res://scripts/enemies/double_jump_enemy.gd" id="1_exwwl"]
+[ext_resource type="Texture2D" uid="uid://1fqhr2ci5fcp" path="res://assets/sprites/enemy_placeholder.png" id="2_rdynk"]
+[ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://nodes/hitbox.tscn" id="3_e1e77"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuyn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rdynk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmq2l"]
+size = Vector2(11.9546, 10.1471)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjeu5"]
+size = Vector2(14, 21.6471)
+
+[node name="DoubleJumpEnemy" type="CharacterBody2D"]
+z_index = 8
+z_as_relative = false
+collision_layer = 2
+script = ExtResource("1_exwwl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, -11.0136)
+scale = Vector2(0.8, 1.10136)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -11)
+scale = Vector2(1, 1.01382)
+sprite_frames = SubResource("SpriteFrames_wuyn0")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.977283, -4.92647)
+shape = SubResource("RectangleShape2D_wmq2l")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_e1e77")]
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, -10.6765)
+shape = SubResource("RectangleShape2D_fjeu5")

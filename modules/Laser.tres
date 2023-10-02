@@ -6,6 +6,6 @@
 
 [resource]
 script = ExtResource("1_fpe08")
-name = ""
+name = "Laser"
 texture = ExtResource("3_gsk0b")
 behaviour = ExtResource("1_p7i61")

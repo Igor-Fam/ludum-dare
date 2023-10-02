@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://go6jux2pscpu" path="res://nodes/inventory_display.tscn" id="2_6scvl"]
 
 [node name="Inventory" type="Node2D"]
-z_index = 6
+z_index = 18
 z_as_relative = false
 script = ExtResource("1_d8g7l")
 
 [node name="InventoryDisplay" parent="." instance=ExtResource("2_6scvl")]
-z_as_relative = true
+z_index = 18

@@ -1,35 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://8lbp10k53nao"]
+[gd_scene load_steps=12 format=3 uid="uid://8lbp10k53nao"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ckhb2"]
 [ext_resource type="PackedScene" uid="uid://bm0dphi0akj77" path="res://nodes/player.tscn" id="2_sv81p"]
 [ext_resource type="PackedScene" uid="uid://bvm1a0ijqhh3f" path="res://nodes/tile_map.tscn" id="3_u2gvk"]
 [ext_resource type="PackedScene" uid="uid://bc1fx2q74samb" path="res://nodes/spikes.tscn" id="4_cj77u"]
-[ext_resource type="PackedScene" uid="uid://bx5ac1uo80vwh" path="res://nodes/walking_enemy.tscn" id="5_yunxl"]
 [ext_resource type="PackedScene" uid="uid://40rk7hiwqgcs" path="res://nodes/ladder.tscn" id="6_tuxlh"]
 [ext_resource type="PackedScene" uid="uid://dvhtb4we5embh" path="res://nodes/modules/double_jump_item.tscn" id="7_5nox6"]
 [ext_resource type="PackedScene" uid="uid://2bs4alv26k0v" path="res://nodes/modules/dash_item.tscn" id="8_shrhw"]
 [ext_resource type="PackedScene" uid="uid://b08d5v1g0ywdb" path="res://nodes/modules/laser_item.tscn" id="9_xpmg3"]
+[ext_resource type="Script" path="res://scripts/camera_anchor.gd" id="10_5yvw5"]
+[ext_resource type="PackedScene" uid="uid://fw3en38cmymu" path="res://nodes/enemies/sword_enemy.tscn" id="11_rcgbk"]
+[ext_resource type="PackedScene" uid="uid://c0b1xchmnfmkm" path="res://nodes/modules/sword_item.tscn" id="11_t1tw0"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ckhb2")
 
-[node name="Player" parent="." instance=ExtResource("2_sv81p")]
-z_index = 5
-position = Vector2(98, 123)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="TileMap" parent="." instance=ExtResource("3_u2gvk")]
-layer_0/tile_data = PackedInt32Array(589824, 65536, 7, 524288, 65536, 6, 458752, 65536, 6, 393216, 65536, 1, 393217, 196608, 1, 458753, 196608, 6, 524289, 262144, 1, 524290, 131072, 1, 589826, 131072, 7, 589827, 131072, 7, 589828, 131072, 7, 589829, 131072, 7, 589830, 131072, 7, 589825, 131072, 7, 524291, 131072, 1, 524292, 131072, 1, 524293, 131072, 1, 524294, 327680, 1, 458758, 65536, 1, 458759, 327680, 1, 458760, 196608, 6, 524295, 131072, 6, 589831, 131072, 7, 524296, 196608, 6, 393224, 196608, 6, 393223, 65536, 1, 327688, 0, 1, 524299, 65536, 1, 524300, 327680, 1, 524301, 262144, 1, 524302, 131072, 1, 524303, 131072, 1, 524304, 131072, 1, 589840, 131072, 7, 589839, 131072, 7, 589838, 131072, 7, 589837, 131072, 7, 589836, 131072, 7, 458764, 65536, 6, 458765, 196608, 1, 589835, 131072, 7, 589833, 131072, 0, 589834, 131072, 0, 589832, 131072, 7, 393228, 0, 1, 327696, 196608, 0, 327695, 65536, 0, 589841, 131072, 7, 524305, 131072, 1, 524306, 131072, 1, 524307, 131072, 1, 589842, 131072, 7, 589843, 131072, 7, 589844, 131072, 7, 524308, 131072, 1, 458773, 65536, 1, 458774, 196608, 1, 524310, 196608, 6, 524309, 327680, 1, 589845, 131072, 7, 589846, 131072, 7, 589847, 131072, 0, 589848, 131072, 0, 589849, 131072, 7, 524313, 65536, 6, 458777, 65536, 1, 458778, 131072, 1, 458779, 131072, 1, 458780, 196608, 1, 524316, 196608, 6, 524315, 131072, 6, 524314, 131072, 6, 589850, 131072, 7, 589851, 131072, 7, 589852, 131072, 7, 589853, 131072, 0, 589854, 131072, 0, 589855, 196608, 0)
+[node name="TileMap" parent="." groups=["World"] instance=ExtResource("3_u2gvk")]
+layer_0/tile_data = PackedInt32Array(589824, 65536, 7, 524288, 65536, 6, 458752, 65536, 6, 393216, 65536, 1, 393217, 196608, 1, 458753, 196608, 6, 524289, 262144, 1, 524290, 131072, 1, 589826, 131072, 7, 589827, 131072, 7, 589828, 131072, 7, 589829, 131072, 7, 589830, 131072, 7, 589825, 131072, 7, 524291, 131072, 1, 524292, 131072, 1, 524293, 131072, 1, 524294, 327680, 1, 458758, 65536, 1, 458759, 131072, 1, 458760, 196608, 1, 524295, 131072, 6, 589831, 131072, 7, 524296, 196608, 6, 524299, 65536, 6, 524300, 131072, 6, 524301, 262144, 1, 524302, 131072, 1, 524303, 131072, 1, 524304, 131072, 1, 589840, 131072, 7, 589839, 131072, 7, 589838, 131072, 7, 589837, 131072, 7, 589836, 131072, 7, 458764, 131072, 1, 458765, 196608, 1, 589835, 131072, 7, 589833, 131072, 0, 589834, 131072, 0, 589832, 131072, 7, 327696, 196608, 0, 327695, 65536, 0, 589841, 131072, 7, 524305, 131072, 1, 524306, 131072, 1, 524307, 131072, 1, 589842, 131072, 7, 589843, 131072, 7, 589844, 131072, 7, 524308, 131072, 1, 458773, 65536, 1, 458774, 196608, 1, 524310, 196608, 6, 524309, 327680, 1, 589845, 131072, 7, 589846, 131072, 7, 589847, 131072, 0, 589848, 131072, 0, 589849, 131072, 7, 524313, 65536, 6, 458777, 65536, 1, 458778, 131072, 1, 458779, 131072, 1, 458780, 196608, 1, 524316, 196608, 6, 524315, 131072, 6, 524314, 131072, 6, 589850, 131072, 7, 589851, 131072, 7, 589852, 131072, 7, 589853, 131072, 0, 589854, 131072, 0, 589855, 196608, 0, 458763, 65536, 1, 262152, 65536, 7, 262153, 131072, 7, 262154, 131072, 7, 262155, 196608, 7, 196619, 196608, 6, 131083, 196608, 6, 65547, 196608, 6, 11, 196608, 6, -65525, 196608, 1, -65526, 131072, 1, -65527, 131072, 1, -65528, 65536, 1, 8, 65536, 6, 65544, 65536, 6, 131080, 65536, 6, 196616, 327680, 0, 196617, 131072, 6, 131081, 131072, 6, 65545, 131072, 6, 9, 131072, 6, 10, 131072, 6, 65546, 131072, 6, 131082, 131072, 6, 196618, 131072, 6)
 
 [node name="Spikes" parent="." instance=ExtResource("4_cj77u")]
 position = Vector2(171, 162)
 
 [node name="Spikes2" parent="." instance=ExtResource("4_cj77u")]
 position = Vector2(189, 162)
-
-[node name="WalkingEnemy" parent="." instance=ExtResource("5_yunxl")]
-position = Vector2(18, 108)
 
 [node name="Ladder" parent="." instance=ExtResource("6_tuxlh")]
 position = Vector2(315, 135)
@@ -43,11 +36,33 @@ position = Vector2(315, 99)
 [node name="Ladder4" parent="." instance=ExtResource("6_tuxlh")]
 position = Vector2(315, 81)
 
-[node name="DoubleJumpItem" parent="." instance=ExtResource("7_5nox6")]
-position = Vector2(72, 72)
-
 [node name="DashItem" parent="." instance=ExtResource("8_shrhw")]
-position = Vector2(36, 54)
+position = Vector2(90, 45)
 
-[node name="DashItem2" parent="." instance=ExtResource("9_xpmg3")]
-position = Vector2(54, 99)
+[node name="DoubleJumpItem" parent="." instance=ExtResource("7_5nox6")]
+position = Vector2(54, 81)
+
+[node name="LaserItem" parent="." instance=ExtResource("9_xpmg3")]
+position = Vector2(126, 54)
+
+[node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerRoot" instance=ExtResource("2_sv81p")]
+position = Vector2(54, 126)
+
+[node name="Anchor" type="Marker2D" parent="PlayerRoot"]
+script = ExtResource("10_5yvw5")
+
+[node name="Cam" type="Camera2D" parent="PlayerRoot/Anchor"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="SwordItem" parent="." instance=ExtResource("11_t1tw0")]
+position = Vector2(63, 36)
+
+[node name="SwordEnemy" parent="." instance=ExtResource("11_rcgbk")]
+position = Vector2(288, 144)

@@ -6,15 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://bx1c36ywwg02d" path="res://assets/sprites/modules/dash.png" id="4_nfjbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhhag"]
-size = Vector2(4, 4)
+size = Vector2(6.0625, 6.25)
 
 [node name="DashItem" type="Node2D"]
+z_index = 7
+z_as_relative = false
 script = ExtResource("1_o4kll")
 size = Vector2(2, 2)
 module = ExtResource("2_skp7y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 2
 material = ExtResource("2_qh714")
 position = Vector2(6, 5)
 texture = ExtResource("4_nfjbi")
@@ -33,6 +34,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea"]
+position = Vector2(0.03125, 0)
 shape = SubResource("RectangleShape2D_xhhag")
 
 [connection signal="input_event" from="ItemArea" to="." method="_on_area_2d_input_event"]

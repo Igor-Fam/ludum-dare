@@ -10,9 +10,15 @@ var direction = 1
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var ledgeCheckRight = $LedgeCheckRight
 @onready var ledgeCheckLeft = $LedgeCheckLeft
+@onready var visibleNotifier = $VisibleOnScreenNotifier2D
 
+func _init():
+	add_to_group("Enemies")
 
 func _physics_process(delta):
+	if(!visibleNotifier.is_on_screen()):
+		return
+		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	

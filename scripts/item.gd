@@ -11,10 +11,13 @@ var mouse_offset = Vector2(0, 0)
 @onready var item_area = $ItemArea
 @onready var world = get_parent()
 
+func _init():
+	add_to_group("Items")
+
 func _process(delta):
-	z_index = 1
+	z_index = 20 if selected or in_inventory else 7
+	
 	if selected:
-		z_index = 7
 		followMouse()
 	
 	if(Input.is_action_just_released("ui_left_click") and selected):
@@ -50,6 +53,7 @@ func add_item_to_slot(slot):
 	get_parent().remove_child(self)
 	slot.add_child(self)
 	position = slot.get_child(0).get_child(0).transform.get_origin()
+	position.y += 1
 	
 	var inventory = slot.get_parent().get_parent().get_parent()
 	

@@ -26,8 +26,12 @@ var dash_cooldown = 1.2
 @onready var ladderCheck = $LadderCheck
 @onready var inventory = $Inventory
 @onready var gun = $Gun
+@onready var sword = $Sword
+@onready var laser = $GrabbingLaser
 
 func _physics_process(delta):
+	set_weapon_visibility()
+	
 	match state:
 		MOVE: move_state(delta)
 		CLIMB: climb_state(delta)
@@ -35,6 +39,8 @@ func _physics_process(delta):
 
 #States
 func move_state(delta):
+	cast_laser()
+	
 	if is_on_ladder() && Input.is_action_pressed("ui_up"):
 		state = CLIMB
 	
@@ -123,3 +129,21 @@ func is_on_ladder():
 func update_dash_cooldown(delta):
 	dash_cooldown = move_toward(dash_cooldown, 0, delta)
 
+#Weapons and laser
+func cast_laser():
+	laser.clear_points()
+	
+	var items = get_tree().get_nodes_in_group("Items")
+	
+	if(Input.is_action_pressed("ui_left_click") && items.any(is_selected)):
+		laser.add_point(position)
+		laser.add_point(get_global_mouse_position())
+
+func set_weapon_visibility():
+		gun.visible = false
+		sword.visible = false
+		sword.process_mode = PROCESS_MODE_DISABLED
+
+#Aux
+func is_selected(item):
+	return item.selected

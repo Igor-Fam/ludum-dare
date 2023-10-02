@@ -15,10 +15,9 @@ grow_vertical = 2
 script = ExtResource("1_vgoxy")
 
 [node name="SlotArea" type="Area2D" parent="."]
-position = Vector2(0.49865, 0.505606)
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotArea"]
-position = Vector2(5.5, 5.5)
+position = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_7xdwc")

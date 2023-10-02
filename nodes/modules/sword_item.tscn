@@ -1,34 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvhtb4we5embh"]
+[gd_scene load_steps=7 format=3 uid="uid://c0b1xchmnfmkm"]
 
-[ext_resource type="Script" path="res://scripts/item.gd" id="1_ks5f4"]
-[ext_resource type="Texture2D" uid="uid://bpchxg5prwi1c" path="res://assets/sprites/modules/double_jump.png" id="2_8nx0u"]
-[ext_resource type="Resource" uid="uid://s8wa077hkwtv" path="res://modules/Double Jump.tres" id="2_irnkh"]
-[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="2_j2ykq"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_4x0le"]
+[ext_resource type="Resource" uid="uid://dk5b2nvkakwaj" path="res://modules/Sword.tres" id="2_f1agx"]
+[ext_resource type="Material" uid="uid://deab5nna50a77" path="res://assets/shaders/JitterFreePixelArt.tres" id="3_qyxf6"]
+[ext_resource type="Texture2D" uid="uid://barxmwn8lb28k" path="res://assets/sprites/modules/sword.png" id="4_ow7an"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmyje"]
-size = Vector2(11.4998, 23)
+size = Vector2(11.4998, 35.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhhag"]
 size = Vector2(5.69461, 6.29056)
 
-[node name="DoubleJumpItem" type="Node2D"]
+[node name="SwordItem" type="Node2D"]
 z_index = 7
 z_as_relative = false
-script = ExtResource("1_ks5f4")
-size = Vector2(1, 2)
-module = ExtResource("2_irnkh")
+script = ExtResource("1_4x0le")
+size = Vector2(1, 3)
+module = ExtResource("2_f1agx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("2_j2ykq")
-position = Vector2(0, 5)
-texture = ExtResource("2_8nx0u")
+material = ExtResource("3_qyxf6")
+position = Vector2(0, 11)
+texture = ExtResource("4_ow7an")
 
 [node name="ItemArea" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
-position = Vector2(0, 5)
+position = Vector2(0, 11.25)
 shape = SubResource("RectangleShape2D_nmyje")
 
 [node name="InventoryArea" type="Area2D" parent="."]
