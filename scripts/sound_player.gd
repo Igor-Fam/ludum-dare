@@ -1,6 +1,9 @@
 extends Node
 
 @onready var audioPlayers = $AudioPlayers
+@onready var BGMPlayer = $BGMPlayer
+
+var playing_bgm = false
 
 const ENEMY_HURT = preload("res://assets/sounds/damage.wav")
 const PLAYER_HURT = preload("res://assets/sounds/player_damage.wav")
@@ -13,6 +16,11 @@ const DASH = preload("res://assets/sounds/dash.wav")
 const JUMP = preload("res://assets/sounds/jump.wav")
 const DOUBLE_JUMP = preload("res://assets/sounds/double_jump.wav")
 const BUTTON = preload("res://assets/sounds/button.wav")
+const BGM = preload("res://assets/sounds/ready-pixel-one.wav")
+
+func _process(delta):
+	if not BGMPlayer.playing:
+		BGMPlayer.play()
 
 func play(sound):
 	for audioStreamPlayer in audioPlayers.get_children():	

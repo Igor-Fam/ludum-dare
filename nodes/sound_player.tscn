@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb3y5d011b4db"]
+[gd_scene load_steps=3 format=3 uid="uid://bb3y5d011b4db"]
 
 [ext_resource type="Script" path="res://scripts/sound_player.gd" id="1_hfrjo"]
+[ext_resource type="AudioStream" uid="uid://bwxsf1vkg14po" path="res://assets/sounds/ready-pixel-one.wav" id="2_vyu7c"]
 
 [node name="SoundPlayer" type="Node"]
 script = ExtResource("1_hfrjo")
@@ -22,3 +23,7 @@ script = ExtResource("1_hfrjo")
 [node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="AudioPlayers"]
 
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="AudioPlayers"]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vyu7c")
+autoplay = true

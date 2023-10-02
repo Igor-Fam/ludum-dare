@@ -25,7 +25,6 @@ func _on_body_entered(body):
 			body.queue_free()
 
 func _on_area_entered(area):
-	print(area)
 	var parent = area.get_parent()
 	if(parent && parent is Spikes):
 		get_parent().die()

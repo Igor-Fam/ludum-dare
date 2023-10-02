@@ -1,14 +1,14 @@
 AudioStreamPlayer
+Sprite2D
+Node2D
+AnimatedSprite2D
 Node
 CollisionShape2D
 Area2D
-AnimatedSprite2D
 CharacterBody2D
-Node2D
 RayCast2D
 StaticBody2D
 Marker2D
-Sprite2D
 Line2D
 Camera2D
 VisibleOnScreenNotifier2D
