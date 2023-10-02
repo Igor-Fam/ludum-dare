@@ -1,7 +1,7 @@
-res://assets/sprites
-res://assets/sprites/enemies
-res://nodes/levels
 res://nodes
+res://assets/sprites/enemies
+res://assets/sprites
+res://nodes/levels
 res://scripts
 res://scripts/enemies
 res://assets

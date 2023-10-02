@@ -22,6 +22,7 @@ func _process(delta):
 	
 	if(Input.is_action_just_released("ui_left_click") and selected):
 		change_inventory()
+		SoundPlayer.play(SoundPlayer.ITEM_DROP)
 		selected = false
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
@@ -53,7 +54,7 @@ func add_item_to_slot(slot):
 	var inventory = slot.get_parent().get_parent().get_parent()
 	if inventory.modules.any(check_same_module):
 		return
-		
+
 	get_parent().remove_child(self)
 	slot.add_child(self)
 	position = slot.get_child(0).get_child(0).transform.get_origin()

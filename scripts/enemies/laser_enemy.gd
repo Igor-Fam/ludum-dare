@@ -2,14 +2,16 @@ extends CharacterBody2D
 
 const DROP = preload("res://nodes/modules/laser_item.tscn")
 const SPEED = 35.0
-const bulletPath = preload("res://nodes/laser.tscn")
+const bulletPath = preload("res://nodes/enemy_laser.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var direction = 1
-var walk_timer = 2.5
 var aim_timer = 1
 var shoot_timer = 0.8
+var has_dropped = false
+
+@export var walk_timer = 2.5
+@export var direction = -1
 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var ledgeCheckRight = $LedgeCheckRight
@@ -64,6 +66,7 @@ func walk():
 
 func shoot():
 	var bullet = bulletPath.instantiate()
+	SoundPlayer.play(SoundPlayer.ENEMY_LASER)
 	bullet.enemy = true
 	bullet.global_position = gun.bulletPos.global_position
 	bullet.rotation = gun.rotation
@@ -72,7 +75,11 @@ func shoot():
 	get_parent().add_child(bullet)
 
 func die():
-	var drop = DROP.instantiate()
-	get_tree().get_nodes_in_group("World")[0].add_child(drop)
-	drop.position = position
+	if not has_dropped:
+		SoundPlayer.play(SoundPlayer.ENEMY_HURT)
+		has_dropped = true
+		var drop = DROP.instantiate()
+		get_tree().get_nodes_in_group("World")[0].add_child(drop)
+		drop.position = position
+		drop.position.y -= drop.size.y * 11
 	queue_free()

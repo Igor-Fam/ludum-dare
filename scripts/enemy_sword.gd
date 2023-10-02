@@ -33,6 +33,7 @@ func _physics_process(delta):
 
 	
 	if(cooldown <= 0 and enemy.player_in_range()):
+		SoundPlayer.play(SoundPlayer.SWORD)
 		sprite.play("swing")
 		cooldown = 1
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://blk0uivkf4s0t"]
+
+[ext_resource type="PackedScene" uid="uid://ckqd5lv3h5gvs" path="res://nodes/level.tscn" id="1_ul2ls"]
+[ext_resource type="PackedScene" uid="uid://dn6quswa6l3ug" path="res://nodes/levels/level_3.tscn" id="2_s8jjo"]
+[ext_resource type="PackedScene" uid="uid://bim1miccpdciy" path="res://nodes/enemies/walk_enemy.tscn" id="3_284w0"]
+[ext_resource type="PackedScene" uid="uid://bx5ac1uo80vwh" path="res://nodes/enemies/double_jump_enemy.tscn" id="4_y7lmx"]
+[ext_resource type="PackedScene" uid="uid://fw3en38cmymu" path="res://nodes/enemies/sword_enemy.tscn" id="5_3lxxt"]
+[ext_resource type="PackedScene" uid="uid://bndxox7prf0ar" path="res://nodes/enemies/dash_enemy.tscn" id="6_hfqot"]
+[ext_resource type="PackedScene" uid="uid://bj7tsxvmgltg7" path="res://nodes/enemies/laser_enemy.tscn" id="7_x0cxo"]
+[ext_resource type="PackedScene" uid="uid://b08d5v1g0ywdb" path="res://nodes/modules/laser_item.tscn" id="8_36w6i"]
+[ext_resource type="Texture2D" uid="uid://20kohyra70gy" path="res://assets/sprites/thanks.png" id="9_wtdd2"]
+
+[node name="Level" instance=ExtResource("1_ul2ls")]
+
+[node name="Player" parent="." index="1"]
+position = Vector2(0, 0)
+
+[node name="Goal" parent="." index="2"]
+position = Vector2(333, -135)
+target_level = ExtResource("2_s8jjo")
+
+[node name="TileMap" parent="." index="3"]
+layer_0/tile_data = PackedInt32Array(589841, 2, 0, -655343, 2, 0, -589842, 2, 0, 655342, 2, 0, 524305, 2, 0, 458769, 2, 0, 393233, 2, 0, 327697, 2, 0, 589840, 2, 0, 589839, 2, 0, 589838, 2, 0, 589837, 2, 0, 589836, 2, 0, 589835, 2, 0, 589834, 2, 0, 589833, 2, 0, 589832, 2, 0, 589831, 2, 0, 589830, 2, 0, 589829, 2, 0, 589828, 2, 0, 589827, 2, 0, 589826, 2, 0, 589825, 2, 0, 589824, 2, 0, 655359, 2, 0, 655358, 2, 0, 655357, 2, 0, 655356, 2, 0, 655355, 2, 0, 655354, 2, 0, 655353, 2, 0, 655352, 2, 0, 655351, 2, 0, 655350, 2, 0, 655349, 2, 0, 655348, 2, 0, 655347, 2, 0, 655346, 2, 0, 655345, 2, 0, 655344, 2, 0, 655343, 2, 0, 589806, 2, 0, 524270, 2, 0, 458734, 2, 0, 393198, 2, 0, 327662, 2, 0, 262126, 2, 0, 196590, 2, 0, 131054, 2, 0, 65518, 2, 0, -18, 2, 0, -65554, 2, 0, -131090, 2, 0, -196626, 2, 0, -262162, 2, 0, -327698, 2, 0, -393234, 2, 0, -458770, 2, 0, -524306, 2, 0, -655344, 2, 0, -655345, 2, 0, -655346, 2, 0, -655347, 2, 0, -655348, 2, 0, -655349, 2, 0, -655350, 2, 0, -655351, 2, 0, -655352, 2, 0, -655353, 2, 0, -655354, 2, 0, -655355, 2, 0, -655356, 2, 0, -655357, 2, 0, -655358, 2, 0, -655359, 2, 0, -655360, 2, 0, -589825, 2, 0, -589826, 2, 0, -589827, 2, 0, -589828, 2, 0, -589829, 2, 0, -589830, 2, 0, -589831, 2, 0, -589832, 2, 0, -589833, 2, 0, -589834, 2, 0, -589835, 2, 0, -589836, 2, 0, -589837, 2, 0, -589838, 2, 0, -589839, 2, 0, -589840, 2, 0, -589841, 2, 0, -196591, 2, 0, -262127, 2, 0, -327663, 2, 0, -393199, 2, 0, 65553, 2, 0, 17, 2, 0, -65519, 2, 0, -131055, 2, 0, 131089, 2, 0, 196625, 2, 0, 262161, 2, 0, -458735, 2, 0, -524271, 2, 0, -589807, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 3, 2, 0, 131070, 2, 0, 131069, 2, 0, 131068, 2, 0, 65532, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 327672, 2, 0, 327671, 2, 0, 327670, 2, 0, 524304, 2, 0, 524303, 2, 0, 524302, 2, 0, 458766, 2, 0, 458767, 2, 0, 458768, 2, 0, 589807, 2, 0, 524271, 2, 0, 524272, 2, 0, 524273, 2, 0, 589808, 2, 0, 589809, 2, 0)
+
+[node name="WalkingEnemy" parent="." index="4" instance=ExtResource("3_284w0")]
+position = Vector2(-72, 144)
+
+[node name="DoubleJumpEnemy" parent="." index="5" instance=ExtResource("4_y7lmx")]
+position = Vector2(189, 144)
+jump_timer = 1.0
+
+[node name="SwordEnemy" parent="." index="6" instance=ExtResource("5_3lxxt")]
+position = Vector2(13, 140)
+
+[node name="DashEnemy" parent="." index="7" instance=ExtResource("6_hfqot")]
+position = Vector2(-171, 144)
+dash_cooldown = 2.3
+direction = 1
+
+[node name="LaserEnemy" parent="." index="8" instance=ExtResource("7_x0cxo")]
+position = Vector2(117, 144)
+
+[node name="LaserEnemy2" parent="." index="9" instance=ExtResource("7_x0cxo")]
+position = Vector2(288, 117)
+
+[node name="LaserEnemy3" parent="." index="10" instance=ExtResource("7_x0cxo")]
+position = Vector2(-279, 117)
+
+[node name="LaserItem" parent="." index="11" instance=ExtResource("8_36w6i")]
+position = Vector2(-45, -18)
+
+[node name="Thanks" type="Sprite2D" parent="." index="12"]
+z_index = -1
+position = Vector2(0, -27)
+texture = ExtResource("9_wtdd2")

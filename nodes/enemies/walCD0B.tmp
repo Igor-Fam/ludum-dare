@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bim1miccpdciy"]
+
+[ext_resource type="Script" path="res://scripts/enemies/walking_enemy.gd" id="1_827am"]
+[ext_resource type="Texture2D" uid="uid://1fqhr2ci5fcp" path="res://assets/sprites/enemy_placeholder.png" id="2_eu01j"]
+[ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://nodes/hitbox.tscn" id="3_e1e77"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58bnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eu01j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60d1l"]
+size = Vector2(11.9546, 10.1471)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lk18"]
+size = Vector2(14, 21.6471)
+
+[node name="WalkingEnemy" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_827am")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, -5)
+scale = Vector2(0.75, 0.5)
+
+[node name="LedgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2(5, -1)
+target_position = Vector2(0, 2)
+
+[node name="LedgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-6, -1)
+target_position = Vector2(0, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -11)
+scale = Vector2(1, 1.01382)
+sprite_frames = SubResource("SpriteFrames_58bnl")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.977283, -4.92647)
+shape = SubResource("RectangleShape2D_60d1l")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_e1e77")]
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, -10.6765)
+shape = SubResource("RectangleShape2D_5lk18")

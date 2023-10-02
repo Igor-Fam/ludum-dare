@@ -13,7 +13,7 @@ func executeBehaviour(player):
 		
 	if Input.is_action_just_pressed("ui_right_click"):
 		var bullet = bulletPath.instantiate()
-		#player.gun.add_child(bullet)
+		SoundPlayer.play(SoundPlayer.PLAYER_LASER)
 		bullet.global_position = player.gun.bulletPos.global_position
 		bullet.rotation = player.gun.rotation
 		bullet.target = player.gun.get_global_mouse_position()

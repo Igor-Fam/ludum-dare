@@ -28,6 +28,7 @@ func _physics_process(delta):
 	
 	if(Input.is_action_just_pressed("ui_right_click")):
 		sprite.play("swing")
+		SoundPlayer.play(SoundPlayer.SWORD)
 		
 	move_and_slide()
 

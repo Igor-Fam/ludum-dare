@@ -9,5 +9,6 @@ func _physics_process(delta):
 	if velocity.x + velocity.y == 0:
 		speed = 150 if enemy else 300
 		velocity = speed * position.direction_to(target)
-	move_and_slide()
+	if move_and_slide():
+		queue_free()
 

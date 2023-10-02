@@ -27,6 +27,10 @@ func _physics_process(delta):
 	
 	velocity.x = direction * SPEED
 	
-	animatedSprite.flip_h = direction > 0
+	animatedSprite.flip_h = direction < 0
 	
 	move_and_slide()
+
+func die():
+	SoundPlayer.play(SoundPlayer.ENEMY_HURT)
+	queue_free()

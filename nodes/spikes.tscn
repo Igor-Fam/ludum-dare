@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc1fx2q74samb"]
+[gd_scene load_steps=5 format=3 uid="uid://bc1fx2q74samb"]
 
-[ext_resource type="Texture2D" uid="uid://dxbfbwyhq3bgy" path="res://assets/sprites/tiles_packed.png" id="1_nrvyq"]
-[ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://hitbox.tscn" id="2_abig4"]
+[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_vnm7p"]
+[ext_resource type="PackedScene" uid="uid://uywalyfdqumo" path="res://nodes/hitbox.tscn" id="2_abig4"]
+[ext_resource type="Texture2D" uid="uid://cbh08fxivlfs3" path="res://assets/sprites/spikes.png" id="2_mk85t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4hkc"]
+size = Vector2(18, 10)
 
 [node name="Spikes" type="Node2D"]
+script = ExtResource("1_vnm7p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
-texture = ExtResource("1_nrvyq")
-region_enabled = true
+texture = ExtResource("2_mk85t")
 region_rect = Rect2(144, 54, 18, 18)
 
 [node name="Hitbox" parent="." instance=ExtResource("2_abig4")]
+collision_layer = 64
+can_hit_enemy = true
+can_be_hit = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-polygon = PackedVector2Array(-7, 0, -7, -3, -5, -7, -3, -7, -1, -3, 1, -3, 3, -7, 5, -7, 7, -3, 7, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_c4hkc")

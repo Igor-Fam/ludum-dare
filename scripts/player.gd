@@ -110,6 +110,7 @@ func move_y_gravity(delta):
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		SoundPlayer.play(SoundPlayer.JUMP)
 		velocity.y = JUMP_VELOCITY
 
 func move_y_climb():
@@ -135,9 +136,13 @@ func cast_laser():
 	
 	var items = get_tree().get_nodes_in_group("Items")
 	
-	if(Input.is_action_pressed("ui_left_click") && items.any(is_selected)):
-		laser.add_point(get_global_transform().origin)
-		laser.add_point(get_global_mouse_position())
+	if items.any(is_selected):
+		if Input.is_action_pressed("ui_left_click"):
+			laser.add_point(get_global_transform().origin)
+			laser.add_point(get_global_mouse_position())
+		if Input.is_action_just_pressed("ui_left_click"):
+			SoundPlayer.play(SoundPlayer.ITEM_GRAB)
+	
 
 func set_weapon_visibility():
 		gun.visible = false

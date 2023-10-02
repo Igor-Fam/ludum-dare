@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-const SPEED = 35.0
+const SPEED = 25.0
 const DROP = preload("res://nodes/modules/sword_item.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 1
+var has_dropped = false
 
 @onready var sight = $Sight
 @onready var animatedSprite = $AnimatedSprite2D
@@ -41,8 +42,11 @@ func player_in_range():
 	return collider and collider.is_in_group("Player")
 
 func die():
-	var drop = DROP.instantiate()
-	get_tree().get_nodes_in_group("World")[0].add_child(drop)
-	drop.position = position
-	drop.position.y -= drop.size.y * 11
+	if not has_dropped:
+		SoundPlayer.play(SoundPlayer.ENEMY_HURT)
+		has_dropped = true
+		var drop = DROP.instantiate()
+		get_tree().get_nodes_in_group("World")[0].add_child(drop)
+		drop.position = position
+		drop.position.y -= drop.size.y * 11
 	queue_free()

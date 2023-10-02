@@ -15,12 +15,16 @@ run/main_scene="res://nodes/levels/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+SoundPlayer="*res://nodes/sound_player.tscn"
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/scale=2.0
+window/stretch/scale=3.0
 
 [importer_defaults]
 

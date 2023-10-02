@@ -1,24 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckqd5lv3h5gvs"]
+[gd_scene load_steps=12 format=3 uid="uid://ckqd5lv3h5gvs"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ape6s"]
 [ext_resource type="PackedScene" uid="uid://bm0dphi0akj77" path="res://nodes/player.tscn" id="2_if51n"]
-[ext_resource type="Script" path="res://scripts/camera_anchor.gd" id="3_u0uhr"]
+[ext_resource type="PackedScene" uid="uid://caaj0fd7uqmld" path="res://nodes/goal.tscn" id="3_ha1cl"]
+[ext_resource type="PackedScene" uid="uid://bvm1a0ijqhh3f" path="res://nodes/tile_map.tscn" id="5_0b843"]
+[ext_resource type="PackedScene" uid="uid://bc1fx2q74samb" path="res://nodes/spikes.tscn" id="5_ebkwx"]
+[ext_resource type="PackedScene" uid="uid://2bs4alv26k0v" path="res://nodes/modules/dash_item.tscn" id="6_qf1p7"]
+[ext_resource type="PackedScene" uid="uid://dvhtb4we5embh" path="res://nodes/modules/double_jump_item.tscn" id="7_ojavr"]
+[ext_resource type="PackedScene" uid="uid://b08d5v1g0ywdb" path="res://nodes/modules/laser_item.tscn" id="8_lbbuc"]
+[ext_resource type="PackedScene" uid="uid://c0b1xchmnfmkm" path="res://nodes/modules/sword_item.tscn" id="9_7bima"]
+[ext_resource type="PackedScene" uid="uid://bx5ac1uo80vwh" path="res://nodes/enemies/double_jump_enemy.tscn" id="10_q28qb"]
+
+[sub_resource type="PackedScene" id="PackedScene_rnkav"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Level", "TileMap", "layer_0/tile_data", "Spikes", "position", "Spikes2", "position", "DashItem", "position", "DoubleJumpItem", "position", "LaserItem", "position", "SwordItem", "position", "DoubleJumpEnemy", "position"),
+"node_count": 9,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2147483647, 524289, 1, 1, 2, 2, 0, 1073741825, 0, 2147483647, 786435, 3, 1, 4, 4, 0, 1073741826, 0, 2147483647, 1048581, 5, 1, 6, 6, 0, 1073741827, 0, 2147483647, 1310727, 7, 1, 8, 8, 0, 1073741828, 0, 2147483647, 1572873, 9, 1, 10, 10, 0, 1073741829, 0, 2147483647, 1835019, 11, 1, 12, 12, 0, 1073741830, 0, 2147483647, 2097165, 13, 1, 14, 14, 0, 1073741831, 0, 2147483647, 2359311, 15, 1, 16, 16, 0),
+"variants": [null, ExtResource("5_0b843"), PackedInt32Array(589824, 65536, 7, 524288, 65536, 6, 458752, 65536, 6, 393216, 65536, 1, 393217, 196608, 1, 458753, 196608, 6, 524289, 262144, 1, 524290, 131072, 1, 589826, 131072, 7, 589827, 131072, 7, 589828, 131072, 7, 589829, 131072, 7, 589830, 131072, 7, 589825, 131072, 7, 524291, 131072, 1, 524292, 131072, 1, 524293, 131072, 1, 524294, 327680, 1, 458758, 65536, 1, 458759, 131072, 1, 458760, 196608, 1, 524295, 131072, 6, 589831, 131072, 7, 524296, 196608, 6, 524299, 65536, 6, 524300, 131072, 6, 524301, 262144, 1, 524302, 131072, 1, 524303, 131072, 1, 524304, 131072, 1, 589840, 131072, 7, 589839, 131072, 7, 589838, 131072, 7, 589837, 131072, 7, 589836, 131072, 7, 458764, 131072, 1, 458765, 196608, 1, 589835, 131072, 7, 589833, 131072, 0, 589834, 131072, 0, 589832, 131072, 7, 327696, 196608, 0, 327695, 65536, 0, 589841, 131072, 7, 524305, 131072, 1, 524306, 131072, 1, 524307, 131072, 1, 589842, 131072, 7, 589843, 131072, 7, 589844, 131072, 7, 524308, 131072, 1, 458773, 65536, 1, 458774, 196608, 1, 524310, 196608, 6, 524309, 327680, 1, 589845, 131072, 7, 589846, 131072, 7, 589847, 131072, 0, 589848, 131072, 0, 589849, 131072, 7, 524313, 65536, 6, 458777, 65536, 1, 458778, 131072, 1, 458779, 131072, 1, 458780, 196608, 1, 524316, 196608, 6, 524315, 131072, 6, 524314, 131072, 6, 589850, 131072, 7, 589851, 131072, 7, 589852, 131072, 7, 589853, 131072, 0, 589854, 131072, 0, 589855, 196608, 0, 458763, 65536, 1, 262152, 65536, 7, 262153, 131072, 7, 262154, 131072, 7, 262155, 196608, 7, 196619, 196608, 6, 131083, 196608, 6, 65547, 196608, 6, 11, 196608, 6, -65525, 196608, 1, -65526, 131072, 1, -65527, 131072, 1, -65528, 65536, 1, 8, 65536, 6, 65544, 65536, 6, 131080, 65536, 6, 196616, 327680, 0, 196617, 131072, 6, 131081, 131072, 6, 65545, 131072, 6, 9, 131072, 6, 10, 131072, 6, 65546, 131072, 6, 131082, 131072, 6, 196618, 131072, 6), ExtResource("5_ebkwx"), Vector2(171, 162), ExtResource("5_ebkwx"), Vector2(189, 162), ExtResource("6_qf1p7"), Vector2(90, 45), ExtResource("7_ojavr"), Vector2(54, 81), ExtResource("8_lbbuc"), Vector2(126, 54), ExtResource("9_7bima"), Vector2(63, 36), ExtResource("10_q28qb"), Vector2(285, 134)],
+"version": 3
+}
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ape6s")
 
-[node name="PlayerRoot" type="Node2D" parent="."]
-
-[node name="Player" parent="PlayerRoot" instance=ExtResource("2_if51n")]
-position = Vector2(54, 126)
-
-[node name="Anchor" type="Marker2D" parent="PlayerRoot"]
-script = ExtResource("3_u0uhr")
-
-[node name="Cam" type="Camera2D" parent="PlayerRoot/Anchor"]
+[node name="Cam" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="Player" parent="." instance=ExtResource("2_if51n")]
+position = Vector2(-111, 65)
+
+[node name="Goal" parent="." instance=ExtResource("3_ha1cl")]
+position = Vector2(176, 66)
+target_level = SubResource("PackedScene_rnkav")
+
+[node name="TileMap" parent="." instance=ExtResource("5_0b843")]
+layer_0/tile_data = PackedInt32Array(655342, 2, 0, 589841, 2, 0, -655343, 2, 0, -589842, 2, 0)
