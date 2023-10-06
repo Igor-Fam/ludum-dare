@@ -88,7 +88,7 @@ script = ExtResource("1_dvdcv")
 z_index = 9
 position = Vector2(3, 0)
 sprite_frames = SubResource("SpriteFrames_igy6n")
-animation = &"idle"
+animation = &"swing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17, 1)

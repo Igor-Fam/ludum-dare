@@ -31,7 +31,7 @@ position = Vector2(81, 126)
 position = Vector2(99, 126)
 
 [node name="DashEnemy" parent="." index="8" instance=ExtResource("9_iacj8")]
-position = Vector2(182, 89)
+position = Vector2(182, 88)
 dash_cooldown = 1.6
 
 [node name="Help" type="Node2D" parent="." index="9"]

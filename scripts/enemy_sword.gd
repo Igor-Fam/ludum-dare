@@ -3,7 +3,7 @@ class_name EnemySword
 
 var direction
 var cooldown = 0
-
+var swing_time = 0.23
 
 
 @onready var hitbox = $Hitbox
@@ -21,13 +21,17 @@ func _physics_process(delta):
 	collision.disabled = true
 	
 	if(sprite.animation == "swing"):
-		if(sprite.frame >= 2):
+		if(swing_time <= 0.17):
 			collision.disabled = false
 		
 		sprite.position.x = 13 * direction
-		if sprite.frame_progress == 1:
+		
+		if swing_time <=0:
 			sprite.animation = "idle"
 			sprite.position.x = 6 * direction
+			swing_time = 0.23
+		else:
+			swing_time -= delta
 	else:
 		sprite.position.x = 6 * direction
 

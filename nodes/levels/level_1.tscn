@@ -99,7 +99,7 @@ script = ExtResource("4_dt0nt")
 
 [node name="Tab" type="Sprite2D" parent="Help" index="0"]
 visible = false
-position = Vector2(-594, -27)
+position = Vector2(-315, -81)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_hfud2")
 

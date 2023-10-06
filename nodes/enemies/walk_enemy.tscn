@@ -41,10 +41,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aw3it"]
-size = Vector2(14, 22.1471)
+size = Vector2(16, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkr5x"]
-size = Vector2(14, 22.147)
+size = Vector2(16, 24)
 
 [node name="WalkingEnemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -54,14 +54,6 @@ script = ExtResource("1_827am")
 position = Vector2(-0.5, -5)
 scale = Vector2(0.75, 0.5)
 
-[node name="LedgeCheckRight" type="RayCast2D" parent="."]
-position = Vector2(5, -1)
-target_position = Vector2(0, 2)
-
-[node name="LedgeCheckLeft" type="RayCast2D" parent="."]
-position = Vector2(-6, -1)
-target_position = Vector2(0, 2)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -11)
 scale = Vector2(1, 1.01382)
@@ -70,7 +62,7 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -10.9265)
+position = Vector2(-1, -11)
 shape = SubResource("RectangleShape2D_aw3it")
 
 [node name="Hitbox" parent="." instance=ExtResource("3_e1e77")]
@@ -78,5 +70,13 @@ collision_layer = 32
 collision_mask = 82
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -10.9265)
+position = Vector2(-1, -11)
 shape = SubResource("RectangleShape2D_rkr5x")
+
+[node name="LedgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2(7, -1)
+target_position = Vector2(0, 3)
+
+[node name="LedgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-9, -1)
+target_position = Vector2(0, 3)
